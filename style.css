@@ -13,7 +13,7 @@ body {
   padding: 0;
   background-color: #f1efef;
   font-family: "Kanit", sans-serif;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 header {
   height: 80px;
@@ -104,11 +104,11 @@ header:hover .line {
   }
 }
 main {
-  /* height: calc(100vh - 160px); */
   display: flex;
   align-items: center;
   gap: 50px;
   overflow-x: hidden;
+  margin-top: -80px;
 }
 @media (max-width: 1000px) {
   main {
