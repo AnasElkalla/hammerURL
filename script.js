@@ -5,7 +5,7 @@ const spinner = document.querySelector(".spinner");
 const refresh = document.querySelector(".refresh");
 const resultsDisplay = document.querySelector(".result");
 const history = document.querySelector(".historyIcon");
-const icon = document.querySelector("i");
+const icon = document.querySelector(".close");
 const resultELement = function (response) {
   const html = `<ul>
     <li class="long">  <button class="copyL">
@@ -155,6 +155,10 @@ history.addEventListener("click", function () {
         if (list.length === 0) {
           icon.style.opacity = "0";
           form.style.display = "flex";
+          const x = window.matchMedia("(max-width: 900px)");
+          if (x.matches) {
+            resultsDisplay.style.marginTop = "-200px";
+          }
         }
         // console.log(list);
         window.localStorage.setItem("URLs", JSON.stringify(list));
