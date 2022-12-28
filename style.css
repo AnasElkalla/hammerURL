@@ -305,7 +305,7 @@ hr {
   margin-top: 10px;
 }
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   height: 80px;
   background-color: #353434;
