@@ -152,7 +152,10 @@ history.addEventListener("click", function () {
       ele.addEventListener("click", function (e) {
         e.target.parentElement.remove();
         list.splice(i, 1);
-        if (list.length === 0) icon.style.opacity = "0";
+        if (list.length === 0) {
+          icon.style.opacity = "0";
+          form.style.display = "flex";
+        }
         // console.log(list);
         window.localStorage.setItem("URLs", JSON.stringify(list));
       });
