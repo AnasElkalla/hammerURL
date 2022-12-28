@@ -106,8 +106,8 @@ header:hover .line {
 main {
   /* height: calc(100vh - 160px); */
   display: flex;
-  justify-content: calc(50%);
   align-items: center;
+  gap: 50px;
   overflow-x: hidden;
 }
 @media (max-width: 1000px) {
@@ -116,6 +116,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-top: 50px;
+    gap: 0;
   }
 
   .mainImage {
@@ -136,19 +137,21 @@ main {
   width: 100%;
 }
 .content {
+  width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   height: 100%;
+  align-self: center;
 }
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 0;
+  margin-left: 0;
   margin-top: 0;
 }
 @media (max-width: 1000px) {
@@ -252,8 +255,7 @@ a {
 }
 section {
   width: 250px;
-  height: 250px;
-  margin: 0 50px;
+  max-height: 250px;
   color: Red;
   display: none;
   overflow-y: scroll;
@@ -295,9 +297,6 @@ li button {
   vertical-align: middle;
 }
 @media (max-width: 1000px) {
-  section {
-    margin-top: -200px;
-  }
   ul {
     font-size: 10px;
   }

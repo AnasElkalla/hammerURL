@@ -36,19 +36,24 @@ const resultELement = function (response) {
     </ul>
     `;
   resultsDisplay.insertAdjacentHTML("afterbegin", html);
+  resultsDisplay.style.display = "block";
   const copyLong = document.querySelector(".long button");
   const copyShort = document.querySelector(".short button");
   const button = document.querySelectorAll("li button");
 
-  //   button.forEach((ele) => {
-  //     ele.addEventListener("click", function (e) {
-  //       if (e.target.parentElement === copyLong) {
-  //         console.log(response.long_url);
-  //       } else if (e.target.parentElement === copyShort) {
-  //         console.log(response.short_url);
-  //       }
-  //     });
-  //   });
+  button.forEach((ele) => {
+    ele.addEventListener("click", function (e) {
+      if (e.target.parentElement === copyLong) {
+        navigator.clipboard
+          .writeText(response.long_url)
+          .then((res) => console.log("success"));
+      } else if (e.target.parentElement === copyShort) {
+        navigator.clipboard
+          .writeText(response.short_url)
+          .then((res) => console.log("success"));
+      }
+    });
+  });
 };
 
 form.addEventListener("submit", function (e) {
@@ -61,8 +66,10 @@ form.addEventListener("submit", function (e) {
   refresh.style.display = "inline-block";
 });
 refresh.addEventListener("click", function (e) {
+  resultsDisplay.innerHTML = "";
   submit.style.display = "block";
   refresh.style.display = "none";
+  resultsDisplay.style.display = "none";
   resultsDisplay.removeChild(resultsDisplay.firstChild);
 });
 const storageArr = [];
@@ -100,6 +107,8 @@ const shortener = function (url) {
     .then((res) => {
       document.querySelector(".delete").addEventListener("click", function (e) {
         e.target.parentElement.remove();
+        resultsDisplay.style.display = "none";
+
         let list = JSON.parse(localStorage.getItem("URLs"));
         list.pop();
         window.localStorage.setItem("URLs", JSON.stringify(list));
@@ -109,6 +118,8 @@ const shortener = function (url) {
 
     .catch((error) => {
       console.log("error", error);
+      resultsDisplay.style.display = "flex";
+
       resultsDisplay.insertAdjacentText("afterbegin", `${error} 🔨`);
     });
   console.log(myHeaders);
@@ -121,13 +132,18 @@ history.addEventListener("click", function () {
 
 history.addEventListener("click", function () {
   let list = JSON.parse(localStorage.getItem("URLs"));
+  console.log(list);
   //   console.log(list.length);
   if (list.length !== 0) {
-    resultsDisplay.replaceChildren();
-    resultsDisplay.style.display = "block";
     refresh.style.display = "none";
     icon.style.opacity = "1";
     form.style.display = "none";
+    resultsDisplay.replaceChildren();
+    resultsDisplay.style.display = "block";
+    const x = window.matchMedia("(max-width: 900px)");
+    if (x.matches) {
+      resultsDisplay.style.marginTop = "-200px";
+    }
     resultsDisplay.style.backgroundColor = "#eee";
     // console.log(list);
     list.forEach((ele) => resultELement(ele));
@@ -140,9 +156,14 @@ history.addEventListener("click", function () {
         window.localStorage.setItem("URLs", JSON.stringify(list));
       });
     });
+  } else {
+    refresh.style.display = "none";
+    resultsDisplay.replaceChildren();
+    resultsDisplay.style.display = "none";
   }
 });
 icon.addEventListener("click", function (e) {
+  resultsDisplay.style.marginTop = "0";
   icon.style.opacity = "0";
   form.style.display = "flex";
   resultsDisplay.innerHTML = "";
