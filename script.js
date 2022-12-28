@@ -122,13 +122,7 @@ const shortener = function (url) {
 
       resultsDisplay.insertAdjacentText("afterbegin", `${error} 🔨`);
     });
-  console.log(myHeaders);
 };
-
-history.addEventListener("click", function () {
-  input.style.display = "block";
-  submit.style.display = "block";
-});
 
 history.addEventListener("click", function () {
   let list = JSON.parse(localStorage.getItem("URLs"));
@@ -148,27 +142,32 @@ history.addEventListener("click", function () {
     // console.log(list);
     list.forEach((ele) => resultELement(ele));
     // resultsDisplay.style.setProperty("--code", "\f00d");
-    document.querySelectorAll(".delete").forEach((ele, i) => {
-      ele.addEventListener("click", function (e) {
-        e.target.parentElement.remove();
-        list.splice(i, 1);
-        if (list.length === 0) {
-          icon.style.opacity = "0";
-          form.style.display = "flex";
-          const x = window.matchMedia("(max-width: 900px)");
-          if (x.matches) {
-            resultsDisplay.style.marginTop = "-200px";
-          }
-        }
-        // console.log(list);
-        window.localStorage.setItem("URLs", JSON.stringify(list));
-      });
-    });
   } else {
     refresh.style.display = "none";
     resultsDisplay.replaceChildren();
     resultsDisplay.style.display = "none";
+    form.style.display = "flex";
   }
+});
+document.querySelectorAll(".delete").forEach((ele, i) => {
+  let list = JSON.parse(localStorage.getItem("URLs"));
+  ele.addEventListener("click", function (e) {
+    e.target.parentElement.remove();
+    list.splice(i, 1);
+    if (list.length === 0) {
+      icon.style.opacity = "0";
+      form.style.display = "flex";
+      resultsDisplay.replaceChildren();
+      resultsDisplay.style.display = "none";
+      const x = window.matchMedia("(max-width: 900px)");
+      if (x.matches) {
+        form.style.marginTop = "-200px";
+      }
+    }
+    window.localStorage.setItem("URLs", JSON.stringify(list));
+
+    // console.log(list);
+  });
 });
 icon.addEventListener("click", function (e) {
   resultsDisplay.style.marginTop = "0";
