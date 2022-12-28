@@ -124,6 +124,7 @@ history.addEventListener("click", function () {
   //   console.log(list.length);
   if (list.length !== 0) {
     resultsDisplay.replaceChildren();
+    refresh.style.display = "none";
     icon.style.opacity = "1";
     form.style.display = "none";
     resultsDisplay.style.backgroundColor = "#eee";
