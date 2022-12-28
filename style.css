@@ -1,8 +1,8 @@
 /* font-family: 'Kanit', sans-serif;
 font-family: 'Luckiest Guy', cursive; */
 :root {
-  --short: "Short URL  ";
-  --long: "Long URL  ";
+  --short: "Short  ";
+  --long: "Long  ";
 }
 
 * {
@@ -14,7 +14,6 @@ body {
   background-color: #f1efef;
   font-family: "Kanit", sans-serif;
   overflow-x: hidden;
-width:100vw
 }
 header {
   height: 80px;
@@ -22,6 +21,7 @@ header {
   font-family: "Luckiest Guy", cursive;
   color: white;
   display: flex;
+  overflow: hidden;
 }
 .logoName {
   display: flex;
@@ -69,10 +69,10 @@ header {
   border-radius: 50%;
 }
 header:hover .line {
-  transform: translateX(380px);
-  transition: 5s linear;
+  transform: translateX(80vw);
+  transition: 3s linear;
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .line {
     display: none;
   }
@@ -104,21 +104,20 @@ header:hover .line {
   }
 }
 main {
-  height: calc(100vh - 160px);
+  /* height: calc(100vh - 160px); */
   display: flex;
   justify-content: calc(50%);
   align-items: center;
+  overflow-x: hidden;
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
   }
-  form {
-    width: 100%;
-    margin-top: -100px;
-  }
+
   .mainImage {
     width: 100%;
     display: flex;
@@ -152,11 +151,12 @@ form {
   margin-right: 0;
   margin-top: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .content {
-    margin-top: -100px;
+    margin-top: 100px;
   }
   form {
+    width: 100%;
     margin-top: -200px;
   }
 }
@@ -252,13 +252,12 @@ a {
 }
 section {
   width: 250px;
-  max-height: 60%;
+  height: 250px;
   margin: 0 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
   color: Red;
+  display: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 section button {
@@ -295,7 +294,10 @@ li a {
 li button {
   vertical-align: middle;
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
+  section {
+    margin-top: -200px;
+  }
   ul {
     font-size: 10px;
   }
@@ -338,7 +340,7 @@ footer a {
 }
 .github {
   margin: 0 5px;
-  font-size:20px
+  font-size: 20px;
 }
 .delete {
   font-size: 8px;

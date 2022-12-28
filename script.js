@@ -124,6 +124,7 @@ history.addEventListener("click", function () {
   //   console.log(list.length);
   if (list.length !== 0) {
     resultsDisplay.replaceChildren();
+    resultsDisplay.style.display = "block";
     refresh.style.display = "none";
     icon.style.opacity = "1";
     form.style.display = "none";
@@ -145,4 +146,5 @@ icon.addEventListener("click", function (e) {
   icon.style.opacity = "0";
   form.style.display = "flex";
   resultsDisplay.innerHTML = "";
+  resultsDisplay.style.display = "none";
 });
