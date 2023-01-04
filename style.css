@@ -452,7 +452,9 @@ footer:hover .copyrights {
 }
 @media (max-width: 1000px) {
   footer {
-    flex-direction:column
+    flex-direction:column;
+        height: 160px;
+
   }
   footer .attributes,
   footer .copyrights {
@@ -488,10 +490,10 @@ footer:hover .copyrights {
   text-align: center;
   font-size:1rem
 }
-@media (min-width:1000px){ 
+/* @media (min-width:1000px){ 
  .backgroundLibrary{ margin: auto;
    align-self: center;}
-}
+} */
 .background {
   position: fixed;
   width: 100vw;
