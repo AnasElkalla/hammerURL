@@ -487,10 +487,11 @@ footer:hover .copyrights {
   flex-direction: column;
   color: white;
   text-align: center;
-  margin: auto;
 }
-@media (min-width:1000px){
-  align-self:center}
+@media (min-width:1000px){ 
+ .backgroundLibrary{ margin: auto;
+   align-self: center;}
+}
 .background {
   position: fixed;
   width: 100vw;
