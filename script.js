@@ -247,18 +247,15 @@ if (!window.localStorage.getItem("URLs")) {
   window.localStorage.setItem("URLs", JSON.stringify([]));
   window.localStorage.setItem("usageToday", JSON.stringify([]));
 }
-window.addEventListener("load", function () {
-  const shortUrl = new Short();
-  console.log(shortUrl);
-  shortUrl.history.addEventListener(
-    "click",
-    shortUrl.getHistory.bind(shortUrl)
-  );
-  shortUrl.form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    console.log(this);
-    shortUrl.submitF();
-  });
-  shortUrl.refresh.addEventListener("click", shortUrl.refreshF.bind(shortUrl));
-  shortUrl.icon.addEventListener("click", shortUrl.openIcon.bind(shortUrl));
+// window.addEventListener("load", function () {
+const shortUrl = new Short();
+console.log(shortUrl);
+shortUrl.history.addEventListener("click", shortUrl.getHistory.bind(shortUrl));
+shortUrl.form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  console.log(this);
+  shortUrl.submitF();
 });
+shortUrl.refresh.addEventListener("click", shortUrl.refreshF.bind(shortUrl));
+shortUrl.icon.addEventListener("click", shortUrl.openIcon.bind(shortUrl));
+// });
