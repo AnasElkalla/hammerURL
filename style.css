@@ -132,7 +132,7 @@ header:hover .line {
     top: 100px;
   }
   .historyIcon img {
-    content: url("images/history1.png");
+/*     content: url("images/history1.png"); */
     animation: iconbeating 0.4s infinite alternate-reverse;
   }
 }
