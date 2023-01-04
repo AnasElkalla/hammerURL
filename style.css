@@ -453,6 +453,7 @@ footer:hover .copyrights {
 @media (max-width: 1000px) {
   footer {
     height: 160px;
+    flex-direction:column
   }
   footer .attributes,
   footer .copyrights {
