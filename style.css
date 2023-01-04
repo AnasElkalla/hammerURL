@@ -132,7 +132,7 @@ header:hover .line {
     top: 100px;
   }
   .historyIcon img {
-/*     content: url("images/history1.png"); */
+    /*     content: url("images/history1.png"); */
     animation: iconbeating 0.4s infinite alternate-reverse;
   }
 }
@@ -404,18 +404,16 @@ footer {
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   overflow: hidden;
   transition: 1s linear;
-  flex-wrap:wrap
+  flex-wrap: wrap;
 }
 .attributes {
   font-size: 10px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  position: absolute;
-  right: 10px;
   opacity: 0;
   transition: 1s linear;
 }
@@ -444,7 +442,7 @@ footer a {
   font-size: 20px;
 }
 footer:hover {
-    height: 160px;
+  height: 160px;
 }
 footer:hover .attributes,
 footer:hover .copyrights {
@@ -452,9 +450,8 @@ footer:hover .copyrights {
 }
 @media (max-width: 1000px) {
   footer {
-    flex-direction:column;
-        height: 160px;
-
+    flex-direction: column;
+    height: 160px;
   }
   footer .attributes,
   footer .copyrights {
@@ -484,11 +481,19 @@ footer:hover .copyrights {
   }
 }
 .backgroundLibrary {
+  width: 200px;
   display: flex;
   flex-direction: column;
   color: white;
-  text-align: center;
-  font-size:1rem
+
+  font-size: 0.8rem;
+}
+.attr {
+  max-width: 50%;
+  height: 160px;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
 }
 /* @media (min-width:1000px){ 
  .backgroundLibrary{ margin: auto;
