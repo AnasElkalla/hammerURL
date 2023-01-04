@@ -407,6 +407,7 @@ footer {
   align-items: center;
   overflow: hidden;
   transition: 1s linear;
+  flex-wrap:wrap
 }
 .attributes {
   font-size: 10px;
@@ -451,7 +452,7 @@ footer:hover .copyrights {
 }
 @media (max-width: 1000px) {
   footer {
-    height: 80px;
+    height: 160px;
   }
   footer .attributes,
   footer .copyrights {
