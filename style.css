@@ -444,7 +444,7 @@ footer a {
   font-size: 20px;
 }
 footer:hover {
-  height: 80px;
+    height: 160px;
 }
 footer:hover .attributes,
 footer:hover .copyrights {
@@ -452,7 +452,6 @@ footer:hover .copyrights {
 }
 @media (max-width: 1000px) {
   footer {
-    height: 160px;
     flex-direction:column
   }
   footer .attributes,
@@ -487,6 +486,7 @@ footer:hover .copyrights {
   flex-direction: column;
   color: white;
   text-align: center;
+  font-size:1rem
 }
 @media (min-width:1000px){ 
  .backgroundLibrary{ margin: auto;
