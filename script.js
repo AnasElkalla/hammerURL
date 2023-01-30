@@ -1,9 +1,11 @@
+"use strict";
+
 class Short {
   #date;
   list;
   usageToday;
 
-  constructor(input, submitF) {
+  constructor() {
     this.input = document.querySelector("input[type=text]");
     this.submit = document.querySelector("input[type=submit");
     this.form = document.querySelector("form");
@@ -12,13 +14,21 @@ class Short {
     this.resultsDisplay = document.querySelector(".result");
     this.history = document.querySelector(".historyIcon");
     this.icon = document.querySelector(".close");
+    this.history.addEventListener("click", this.getHistory.bind(this));
+    this.form.addEventListener(
+      "submit",
+      function (e) {
+        e.preventDefault();
+        this.submitF();
+      }.bind(this)
+    );
+    this.refresh.addEventListener("click", this.refreshF.bind(this));
+    this.icon.addEventListener("click", this.openIcon.bind(this));
   }
   getHistory() {
     this.list = JSON.parse(localStorage.getItem("URLs"));
-    console.log(this.list, this.refresh);
     //   console.log(list.length);
     if (this.list.length !== 0) {
-      console.log(this);
       this.refresh.style.display = "none";
       this.icon.style.opacity = "1";
       this.form.style.display = "none";
@@ -38,11 +48,8 @@ class Short {
     }
   }
   shortener(url) {
-    console.log(this);
     this.#date = new Date();
-    console.log(this.#date.getHours());
     this.usageToday = JSON.parse(window.localStorage.getItem("usageToday"));
-    console.log(typeof this.usageToday[2]);
     if (this.usageToday) {
       if (
         this.usageToday.length === 3 &&
@@ -249,13 +256,5 @@ if (!window.localStorage.getItem("URLs")) {
 }
 // window.addEventListener("load", function () {
 const shortUrl = new Short();
-console.log(shortUrl);
-shortUrl.history.addEventListener("click", shortUrl.getHistory.bind(shortUrl));
-shortUrl.form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  console.log(this);
-  shortUrl.submitF();
-});
-shortUrl.refresh.addEventListener("click", shortUrl.refreshF.bind(shortUrl));
-shortUrl.icon.addEventListener("click", shortUrl.openIcon.bind(shortUrl));
+
 // });
